@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, Animated, ScrollView, TouchableOpacity, Linking } from 'react-native';
-// import { useTypewriter, Cursor, Typewriter } from 'react-simple-typewriter';
+import { useTypewriter, Cursor, Typewriter } from 'react-simple-typewriter';
 import { colors } from '../colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import Svg, { Polygon } from 'react-native-svg';
