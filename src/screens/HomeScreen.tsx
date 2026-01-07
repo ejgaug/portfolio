@@ -50,7 +50,7 @@ export default function HomeScreen() {
 
                 <View style={styles.typewriterLine}>
                     <Text style={styles.dynamicText}>
-                        {/* <Typewriter
+                        <Typewriter
                             words={descriptors}
                             loop={true}
                             cursor={true}
@@ -58,8 +58,7 @@ export default function HomeScreen() {
                             typeSpeed={100}
                             deleteSpeed={50}
                             delaySpeed={1500}
-                        /> */}
-                        HELLO WORLD
+                        />
                     </Text>
                 </View>
 
