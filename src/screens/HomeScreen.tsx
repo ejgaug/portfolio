@@ -264,6 +264,7 @@ const styles = StyleSheet.create({
     },
     aboutSection: {
         minHeight: SCREEN_HEIGHT,
+        backgroundColor: colors.muted,
         flexDirection: 'row',
         padding: 80,
         paddingTop: 120,
