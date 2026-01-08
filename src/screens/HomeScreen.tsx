@@ -4,6 +4,8 @@ import { useTypewriter, Cursor, Typewriter } from 'react-simple-typewriter';
 import { colors } from '../colors';
 import { MaterialIcons } from '@expo/vector-icons';
 import Svg, { Polygon } from 'react-native-svg';
+import FileCabinet from '../components/FileCabinet';
+import { projects } from '../projects';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -139,7 +141,7 @@ export default function HomeScreen() {
                 <View style={styles.skillsRight}>
                     <Text style={styles.sectionTitle}>Skills</Text>
 
-                    <Text style={styles.skillCategory}>Core Technologies</Text>
+                    <Text style={[styles.skillCategory, { marginTop: 0 }]}>Core Technologies</Text>
                     <Text style={styles.skillList}>
                         React, React Native, JavaScript, TypeScript, Node.js, Express, FastAPI, SQL, HTML, CSS
                     </Text>
@@ -170,7 +172,9 @@ export default function HomeScreen() {
             <View style={styles.projectsSection}>
                 <Text style={styles.projectsTitle}>Projects</Text>
 
-                <View style={styles.projectItem}>
+                <FileCabinet projects={projects} />
+
+                {/* <View style={styles.projectItem}>
                     <Text style={styles.projectName} onPress={() => Linking.openURL('https://FantasyHQ.ai')}>FantasyHQ.ai</Text>
                     <Text style={styles.projectDescription}>
                         Real-time fantasy football analytics web application with responsive UI, API integration, and custom AI insights. Features innovative dashboards and data visualizations for a premier user experience.
@@ -208,7 +212,7 @@ export default function HomeScreen() {
                         UW-Madison Team Project: AI-powered virtual fitting room mobile application focused on intuitive UX/UI, prototyping, and seamless user interactions for enhanced e-commerce experience.
                     </Text>
                     <Text style={styles.projectTech}>React Native • Fal-AI API • Express.js • Firebase • User Testing • Figma • UX/UI Design</Text>
-                </View>
+                </View> */}
             </View>
 
         </ScrollView>
@@ -222,7 +226,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 20,
+        // paddingHorizontal: 20,
     },
     greeting: {
         fontSize: 64,
@@ -267,7 +271,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.muted,
         flexDirection: 'row',
         padding: 80,
-        paddingTop: 120,
+        paddingTop: 80,
         justifyContent: 'space-between',
         flexWrap: 'wrap',
     },
@@ -275,48 +279,51 @@ const styles = StyleSheet.create({
         flex: 1,
         minWidth: 300,
         marginRight: 40,
+        paddingTop: 40,
     },
     skillsRight: {
         flex: 1,
         minWidth: 300,
+        paddingTop: 40,
     },
     sectionTitle: {
         fontSize: 40,
         fontWeight: '600',
-        color: colors.text,
-        marginBottom: 32,
+        color: colors.cardBorder,
+        marginBottom: 30,
     },
     aboutText: {
         fontSize: 18,
-        color: colors.mutedAlt,
+        color: colors.cardBorder,
         lineHeight: 28,
         marginBottom: 24,
     },
     location: {
         fontSize: 18,
-        color: colors.accent,
+        color: colors.cardBorder,
         marginBottom: 8,
     },
     contact: {
         fontSize: 16,
-        color: colors.accentSoft,
+        color: colors.cardBorder,
         marginBottom: 6,
+        textDecorationLine: 'underline',
     },
     skillCategory: {
         fontSize: 20,
         fontWeight: '600',
-        color: colors.text,
+        color: colors.cardBorder,
         marginTop: 24,
         marginBottom: 8,
     },
     skillList: {
         fontSize: 16,
-        color: colors.mutedAlt,
+        color: colors.cardBorder,
         lineHeight: 24,
     },
     projectsSection: {
         minHeight: SCREEN_HEIGHT,
-        padding: 80,
+        // padding: 80,
         paddingTop: 120,
         alignItems: 'center',
         backgroundColor: colors.background,
