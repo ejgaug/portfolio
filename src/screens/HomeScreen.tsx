@@ -173,46 +173,6 @@ export default function HomeScreen() {
                 <Text style={styles.projectsTitle}>Projects</Text>
 
                 <FileCabinet projects={projects} />
-
-                {/* <View style={styles.projectItem}>
-                    <Text style={styles.projectName} onPress={() => Linking.openURL('https://FantasyHQ.ai')}>FantasyHQ.ai</Text>
-                    <Text style={styles.projectDescription}>
-                        Real-time fantasy football analytics web application with responsive UI, API integration, and custom AI insights. Features innovative dashboards and data visualizations for a premier user experience.
-                    </Text>
-                    <Text style={styles.projectTech}>React Native • TypeScript • Google Maps API • Google Analytics • OpenAI • Expo • FastAPI</Text>
-                </View>
-
-                <View style={styles.projectItem}>
-                    <Text style={styles.projectName}>Critter Clues</Text>
-                    <Text style={styles.projectDescription}>
-                        Cross-platform animal trivia mobile game, fully deployed to App Store and Google Play. Features a custom backend for dynamic data retrieval and engaging, educational gameplay.
-                    </Text>
-                    <Text style={styles.projectTech}>React Native • JavaScript • Expo • EAS • Node.js • Express.js • Firebase • Wiki API • Apple Connect • Google Play Console</Text>
-                </View>
-
-                <View style={styles.projectItem}>
-                    <Text style={styles.projectName}>Critter Clues Kids</Text>
-                    <Text style={styles.projectDescription}>
-                        Kid-friendly version of the Critter Clues trivia app with simplified UI, age-appropriate content, and enhanced type safety. Fully built in backend to avoid unnecessary data exposure.
-                    </Text>
-                    <Text style={styles.projectTech}>React Native • TypeScript • Expo • EAS • Wiki API • Apple Connect • Google Play Console</Text>
-                </View>
-
-                <View style={styles.projectItem}>
-                    <Text style={styles.projectName}>Last Lock</Text>
-                    <Text style={styles.projectDescription}>
-                        Capstone Team Project: React web app for facility managers to visualize room layouts, lock access events, and meeting schedules using interactive floor plans. Automated the generation of floor plans from GeoJSON data.
-                    </Text>
-                    <Text style={styles.projectTech}>React • JavaScript • Mapbox • GeoJSON • JIRA • Agile/Scrum</Text>
-                </View>
-
-                <View style={styles.projectItem}>
-                    <Text style={styles.projectName}>StyleMirror</Text>
-                    <Text style={styles.projectDescription}>
-                        UW-Madison Team Project: AI-powered virtual fitting room mobile application focused on intuitive UX/UI, prototyping, and seamless user interactions for enhanced e-commerce experience.
-                    </Text>
-                    <Text style={styles.projectTech}>React Native • Fal-AI API • Express.js • Firebase • User Testing • Figma • UX/UI Design</Text>
-                </View> */}
             </View>
 
         </ScrollView>
@@ -271,7 +231,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.muted,
         flexDirection: 'row',
         padding: 80,
-        paddingTop: 80,
+        paddingTop: 40,
         justifyContent: 'space-between',
         flexWrap: 'wrap',
     },
@@ -323,8 +283,7 @@ const styles = StyleSheet.create({
     },
     projectsSection: {
         minHeight: SCREEN_HEIGHT,
-        // padding: 80,
-        paddingTop: 120,
+        paddingTop: 80,
         alignItems: 'center',
         backgroundColor: colors.background,
     },
