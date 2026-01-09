@@ -160,7 +160,7 @@ export default function HomeScreen() {
                             I'm a commited frontend developer with a passion for React, React Native, and crafting smooth, user-friendly mobile and web apps that people actually enjoy using.
                             What drives me is a love of creativity, problem-solving, and constant learning.
                             I have hands-on experience building and deploying responsive mobile and web apps in solo and team settings.
-                            Outside of coding, I enjoy love active by playing basketball, lifting, and traveling.
+                            Outside of coding, I enjoy staying active by playing basketball, lifting, and traveling.
                             I'm excited to bring my energy and skills to an entry-level full-time role on a team that's building something meaningful.
                         </Text>
                         <Text style={styles.location}>Milwaukee, Wisconsin</Text>
