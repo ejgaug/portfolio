@@ -7,4 +7,11 @@ export const colors = {
     text: '#e2e8f0',
     muted: '#94a3b8',
     mutedAlt: '#cbd5e1',
+
+    // New gradient stops for smooth section transitions
+    heroBg: '#00000c',      // Slightly darker than background for hero depth
+    gradientMid1: '#343d4d', // Transition from hero to about
+    gradientMid2: '#5d697b', // Nearing muted
+    gradientMid3: '#6a778a', // Transition from about back to dark
+    gradientMid4: '#414c5c', // Nearing background
 };

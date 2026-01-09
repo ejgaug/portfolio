@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, Animated, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Animated, TouchableOpacity, Linking } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { colors } from '../colors';
 
@@ -15,13 +15,14 @@ const BASE_FONT_SIZE = 20;
 // Responsive adjustments
 const getTabWidth = (screenWidth: number) => isSmallScreen(screenWidth) ? 160 : BASE_TAB_WIDTH;
 const getTabHeight = (screenWidth: number) => isSmallScreen(screenWidth) ? 40 : BASE_TAB_HEIGHT;
-const getFontSize = (screenWidth: number, base: number) =>
-    isSmallScreen(screenWidth) ? base * 0.85 : base;
+const getFontSize = (screenWidth: number, base: number) => isSmallScreen(screenWidth) ? base * 0.85 : base;
 
 interface Project {
     title: string;
     description: string;
     tech: string;
+    gitHub: string;
+    publish: { web: string; apple: string; google: string };
 }
 
 interface FileCabinetProps {
@@ -75,27 +76,27 @@ const FileCabinet: React.FC<FileCabinetProps> = ({ projects }) => {
     };
 
     const folderPath = `
-    M 0, ${FILE_HEIGHT - R}
-    L 0, ${R}
-    A ${R} ${R} 0 0 1 ${R}, 0
-    L ${TAB_WIDTH - R}, 0
-    A ${R} ${R} 0 0 1 ${TAB_WIDTH}, ${R}
-    L ${TAB_WIDTH}, ${TAB_HEIGHT - R}
-    L ${TAB_WIDTH}, ${TAB_HEIGHT}
-    L ${FILE_WIDTH - R}, ${TAB_HEIGHT}
-    A ${R} ${R} 0 0 1 ${FILE_WIDTH}, ${TAB_HEIGHT + R}
-    L ${FILE_WIDTH}, ${FILE_HEIGHT - R}
-    A ${R} ${R} 0 0 1 ${FILE_WIDTH - R}, ${FILE_HEIGHT}
-    L ${R}, ${FILE_HEIGHT}
-    A ${R} ${R} 0 0 1 0, ${FILE_HEIGHT - R}
-    Z
-  `;
+        M 0, ${FILE_HEIGHT - R}
+        L 0, ${R}
+        A ${R} ${R} 0 0 1 ${R}, 0
+        L ${TAB_WIDTH - R}, 0
+        A ${R} ${R} 0 0 1 ${TAB_WIDTH}, ${R}
+        L ${TAB_WIDTH}, ${TAB_HEIGHT - R}
+        L ${TAB_WIDTH}, ${TAB_HEIGHT}
+        L ${FILE_WIDTH - R}, ${TAB_HEIGHT}
+        A ${R} ${R} 0 0 1 ${FILE_WIDTH}, ${TAB_HEIGHT + R}
+        L ${FILE_WIDTH}, ${FILE_HEIGHT - R}
+        A ${R} ${R} 0 0 1 ${FILE_WIDTH - R}, ${FILE_HEIGHT}
+        L ${R}, ${FILE_HEIGHT}
+        A ${R} ${R} 0 0 1 0, ${FILE_HEIGHT - R}
+        Z
+    `;
 
     return (
         <View style={styles.container}>
 
             {/* Closed tabs stack on the left */}
-            <View style={styles.closedStack} pointerEvents="box-none">
+            <View style={[styles.closedStack, { top: screenWidth > 600 ? -105 : -60 }]} pointerEvents="box-none">
                 {projects.map((project, index) => {
                     if (index === openIndex) return null;
                     const closedIdx = getClosedIndex(index);
@@ -165,7 +166,22 @@ const FileCabinet: React.FC<FileCabinetProps> = ({ projects }) => {
                     >
                         <TouchableOpacity activeOpacity={1} style={styles.touchableContainer}>
                             <Svg width={FILE_WIDTH} height={FILE_HEIGHT} viewBox={`0 0 ${FILE_WIDTH} ${FILE_HEIGHT}`}>
-                                <Path d={folderPath} fill={colors.muted} stroke="#aaa" strokeWidth="2" />
+                                {/* <Path d={folderPath} fill={colors.muted} stroke="#aaa" strokeWidth="2" /> */}
+                                <Svg width={FILE_WIDTH} height={FILE_HEIGHT} viewBox={`0 0 ${FILE_WIDTH} ${FILE_HEIGHT}`}>
+                                    {/* Outer glow layers - drawn first so they're behind the main shape */}
+                                    <Path d={folderPath} fill="none" stroke={colors.text} strokeWidth="8" strokeOpacity="0.15" />
+                                    <Path d={folderPath} fill="none" stroke={colors.text} strokeWidth="6" strokeOpacity="0.25" />
+                                    <Path d={folderPath} fill="none" stroke={colors.text} strokeWidth="3" strokeOpacity="0.35" />
+
+                                    {/* Main shape on top */}
+                                    <Path
+                                        d={folderPath}
+                                        fill={colors.muted}
+                                        stroke={colors.accentSoft}
+                                        strokeWidth="2"
+                                        strokeOpacity="0.5"
+                                    />
+                                </Svg>
                             </Svg>
 
                             {/* Title in the tab */}
@@ -187,6 +203,34 @@ const FileCabinet: React.FC<FileCabinetProps> = ({ projects }) => {
                                 <Text style={[styles.tech, { fontSize: bodyFontSize - 2 }]}>
                                     {project.tech}
                                 </Text>
+                                {/* Links Section */}
+                                <Text style={[styles.linksHeader, { fontSize: bodyFontSize - 1 }]}>
+                                    Project Links:
+                                </Text>
+
+                                {/* GitHub Link */}
+                                <Text style={[styles.linkText, { fontSize: bodyFontSize - 2 }]} onPress={() => project.gitHub !== 'N/A' && Linking.openURL(project.gitHub)} >
+                                    {project.gitHub === 'N/A' ? '•  Review Github Upon Request' : '•  GitHub Repository'}
+                                </Text>
+
+                                {/* Publish Links (Web, App Store, Google Play) */}
+                                {project.publish.web !== 'N/A' && (
+                                    <Text style={[styles.linkText, { fontSize: bodyFontSize - 2 }]} onPress={() => Linking.openURL(project.publish.web)}>
+                                        •  Website
+                                    </Text>
+                                )}
+
+                                {project.publish.apple !== 'N/A' && (
+                                    <Text style={[styles.linkText, { fontSize: bodyFontSize - 2 }]} onPress={() => Linking.openURL(project.publish.apple)}>
+                                        •  App Store
+                                    </Text>
+                                )}
+
+                                {project.publish.google !== 'N/A' && (
+                                    <Text style={[styles.linkText, { fontSize: bodyFontSize - 2 }]} onPress={() => Linking.openURL(project.publish.google)}>
+                                        •  Google Play
+                                    </Text>
+                                )}
                             </View>
                         </TouchableOpacity>
                     </Animated.View>
@@ -213,7 +257,6 @@ const styles = StyleSheet.create({
     closedStack: {
         position: 'absolute',
         left: 0,
-        top: 0,
         width: 60, // enough space for rotated tabs
     },
     closedTab: {
@@ -224,6 +267,12 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
+        // Add glow shadow
+        shadowColor: colors.accent,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+        elevation: 10, // Android glow
     },
     closedTabText: {
         color: colors.cardBorder,
@@ -261,6 +310,18 @@ const styles = StyleSheet.create({
     tech: {
         color: colors.cardBorder,
         fontStyle: 'italic',
+        marginBottom: 20,
+    },
+    linksHeader: {
+        color: colors.cardBorder,
+        fontWeight: '600',
+        fontSize: 18, // slightly larger for subheader feel
+    },
+    linkText: {
+        color: colors.cardBorder,
+        textDecorationLine: 'underline',
+        marginBottom: 6,
+        lineHeight: 22,
     },
 });
 
