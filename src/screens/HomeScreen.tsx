@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     },
     floatingButtonContainer: {
         position: 'absolute',
-        bottom: 120,
+        bottom: 80,
         zIndex: 10,
         alignItems: 'center',
         justifyContent: 'center',
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
         minHeight: SCREEN_HEIGHT - 100,
         paddingTop: 60,
         alignItems: 'center',
-        paddingBottom: 0
+        marginBottom: 20
     },
     projectsTitle: {
         fontSize: 40,
