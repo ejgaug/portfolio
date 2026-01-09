@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: 300, 
+        minHeight: 400, 
         marginBottom: 150, 
     },
     projectName: {
