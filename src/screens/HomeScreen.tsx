@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        // minHeight: 500, // guarantees enough vertical space
+        minHeight: 600, 
         marginBottom: 150, 
     },
     projectName: {
