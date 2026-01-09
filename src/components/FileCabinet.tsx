@@ -249,10 +249,12 @@ const styles = StyleSheet.create({
     fileContainer: {
         position: 'absolute',
         height: BASE_FILE_HEIGHT,
+        marginBottom: 40,
     },
     touchableContainer: {
         width: '100%',
         height: '100%',
+        // marginBottom: 40,
     },
     closedStack: {
         position: 'absolute',

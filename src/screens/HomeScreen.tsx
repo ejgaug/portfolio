@@ -345,6 +345,7 @@ const styles = StyleSheet.create({
         minHeight: SCREEN_HEIGHT - 100,
         paddingTop: 60,
         alignItems: 'center',
+        paddingBottom: 0
     },
     projectsTitle: {
         fontSize: 40,
