@@ -219,9 +219,11 @@ export default function HomeScreen() {
                 {/* Solid background color for the projects content area */}
                 <View style={[styles.projectsSection, { backgroundColor: colors.background }]}>
                     <Text style={styles.projectsTitle}>Projects</Text>
-                    <FileCabinet projects={projects} />
+                    {/* New centered container with safe bottom spacing */}
+                    <View style={styles.fileCabinetWrapper}>
+                        <FileCabinet projects={projects} />
+                    </View>               
                 </View>
-
             </ScrollView>
     );        
 }
@@ -342,10 +344,11 @@ const styles = StyleSheet.create({
         lineHeight: 24,
     },
     projectsSection: {
-        minHeight: SCREEN_HEIGHT - 100,
+        minHeight: SCREEN_HEIGHT, // ensures full-screen feel
         paddingTop: 60,
+        paddingBottom: 100, // extra safe space at bottom on all devices
         alignItems: 'center',
-        marginBottom: 20
+        backgroundColor: colors.background,
     },
     projectsTitle: {
         fontSize: 40,
@@ -358,6 +361,13 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 60,
         paddingHorizontal: 20,
+    },
+    fileCabinetWrapper: {
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // minHeight: 500, // guarantees enough vertical space
+        marginBottom: 150, 
     },
     projectName: {
         fontSize: 28,
