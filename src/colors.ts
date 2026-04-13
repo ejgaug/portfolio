@@ -1,17 +1,28 @@
 export const colors = {
-    background: '#0b1220',
-    border: '#1c2638',
-    cardBorder: '#1f2c44',
-    accent: '#38bdf8',
-    accentSoft: '#7dd3fc',
-    text: '#e2e8f0',
-    muted: '#94a3b8',
-    mutedAlt: '#cbd5e1',
-
-    // New gradient stops for smooth section transitions
-    heroBg: '#00000c',      // Slightly darker than background for hero depth
-    gradientMid1: '#343d4d', // Transition from hero to about
-    gradientMid2: '#5d697b', // Nearing muted
-    gradientMid3: '#6a778a', // Transition from about back to dark
-    gradientMid4: '#414c5c', // Nearing background
+    background: '#07111d',
+    surface: '#0d1a2b',
+    surfaceAlt: '#122238',
+    surfaceAlt2: '#162b45',
+    panel: 'rgba(13, 26, 43, 0.84)',
+    panelStrong: 'rgba(17, 32, 52, 0.96)',
+    panelSoft: 'rgba(20, 39, 61, 0.72)',
+    navBar: 'rgba(13, 27, 45, 0.95)',
+    border: '#24415d',
+    borderSoft: 'rgba(110, 231, 249, 0.16)',
+    cardBorder: '#dce9f8',
+    accent: '#6ee7f9',
+    accentSoft: '#b9f8ff',
+    accentWarm: '#f8d76b',
+    text: '#edf6ff',
+    textMuted: '#9fb6ca',
+    muted: '#0d1a2b',
+    mutedAlt: '#9fb6ca',
+    pill: '#16304a',
+    glow: 'rgba(110, 231, 249, 0.22)',
+    glowSoft: 'rgba(250, 204, 21, 0.14)',
+    heroBg: '#07111d',
+    gradientMid1: '#0b1625',
+    gradientMid2: '#102033',
+    gradientMid3: '#13253b',
+    gradientMid4: '#0d1a2b',
 };
