@@ -460,6 +460,14 @@ export default function HomeScreen() {
     const [projectBorderProgress, setProjectBorderProgress] = useState(0);
 
     useEffect(() => {
+        if (typeof document === 'undefined') {
+            return;
+        }
+
+        document.title = 'EG Portfolio';
+    }, []);
+
+    useEffect(() => {
         const subscription = Dimensions.addEventListener('change', ({ window }) => {
             setScreenWidth(window.width);
             setScreenHeight(window.height);

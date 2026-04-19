@@ -32,7 +32,7 @@ export default function AppPageLayout({
             return;
         }
 
-        document.title = `${content.name} ${currentPage === 'privacy' ? 'Privacy Policy' : 'Support'} | Elijah Gauger`;
+        document.title = `${content.name} ${currentPage === 'privacy' ? 'Privacy' : 'Support'}`;
     }, [content.name, currentPage]);
 
     return (
@@ -262,4 +262,3 @@ const styles = StyleSheet.create({
         fontWeight: '700',
     },
 });
-

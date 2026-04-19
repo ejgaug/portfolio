@@ -66,12 +66,42 @@ export default function App() {
                     contentStyle: { backgroundColor: '#0b1220' },
                 }}
             >
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{
+                        title: 'EG Portfolio',
+                    }}
+                />
                 <Stack.Screen name="Projects" component={ProjectScreen} />
-                <Stack.Screen name="MediScanPrivacy" component={MediScanPrivacyScreen} />
-                <Stack.Screen name="MediScanSupport" component={MediScanSupportScreen} />
-                <Stack.Screen name="RecipeScalerProPrivacy" component={RecipeScalerProPrivacyScreen} />
-                <Stack.Screen name="RecipeScalerProSupport" component={RecipeScalerProSupportScreen} />
+                <Stack.Screen
+                    name="MediScanPrivacy"
+                    component={MediScanPrivacyScreen}
+                    options={{
+                        title: 'MediScan Privacy',
+                    }}
+                />
+                <Stack.Screen
+                    name="MediScanSupport"
+                    component={MediScanSupportScreen}
+                    options={{
+                        title: 'MediScan Support',
+                    }}
+                />
+                <Stack.Screen
+                    name="RecipeScalerProPrivacy"
+                    component={RecipeScalerProPrivacyScreen}
+                    options={{
+                        title: 'RecipeScalerPro Privacy',
+                    }}
+                />
+                <Stack.Screen
+                    name="RecipeScalerProSupport"
+                    component={RecipeScalerProSupportScreen}
+                    options={{
+                        title: 'RecipeScalerPro Support',
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
