@@ -91,10 +91,10 @@ export default function AppPageLayout({
                     ]}
                 >
                     <Text style={[styles.sideCardTitle, { color: content.theme.text }]}>App pages</Text>
-                    <Text style={[styles.sideCardBody, { color: content.theme.textMuted }]}>
+                    {/* <Text style={[styles.sideCardBody, { color: content.theme.textMuted }]}>
                         These routes are intentionally separate from the main portfolio navigation and are meant to be
                         accessed directly from app listing links.
-                    </Text>
+                    </Text> */}
 
                     <View style={styles.segmentedControl}>
                         <Pressable

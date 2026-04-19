@@ -70,7 +70,7 @@ export default function SupportPage({ content, onNavigateToPage }: SupportPagePr
                         {
                             backgroundColor: content.theme.panel,
                             borderColor: content.theme.border,
-                            flex: 1.05,
+                            flex: isWide ? 1.05 : undefined,
                         },
                     ]}
                 >
@@ -153,7 +153,7 @@ export default function SupportPage({ content, onNavigateToPage }: SupportPagePr
                         {
                             backgroundColor: content.theme.panel,
                             borderColor: content.theme.border,
-                            flex: 0.95,
+                            flex: isWide ? 0.95 : undefined,
                         },
                     ]}
                 >
@@ -212,6 +212,7 @@ const styles = StyleSheet.create({
         borderRadius: 28,
         borderWidth: 1,
         gap: 16,
+        minWidth: 0,
         padding: 22,
     },
     sectionTitle: {
@@ -259,28 +260,32 @@ const styles = StyleSheet.create({
     },
     faqList: {
         gap: 12,
+        minWidth: 0,
     },
     faqItem: {
         borderRadius: 20,
         borderWidth: 1,
         gap: 8,
+        overflow: 'hidden',
         padding: 16,
     },
     faqQuestionRow: {
-        alignItems: 'center',
+        alignItems: 'flex-start',
         flexDirection: 'row',
         gap: 12,
         justifyContent: 'space-between',
+        minWidth: 0,
     },
     faqQuestion: {
         flex: 1,
+        flexShrink: 1,
         fontSize: 16,
         fontWeight: '800',
         lineHeight: 22,
+        minWidth: 0,
     },
     faqAnswer: {
         fontSize: 14,
         lineHeight: 22,
     },
 });
-
